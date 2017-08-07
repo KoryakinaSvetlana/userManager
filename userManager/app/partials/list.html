@@ -1,0 +1,79 @@
+﻿<a class="btn btn-primary" href="#/users/create">
+    Добавить пользователя
+</a>
+
+<div>
+    <div class="well block" ng-repeat="user in users">
+        <div class="row">
+            <div class="col-sm-4"><strong>Id:</strong></div>
+            <div class="col-sm-8">{{user.user_id}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Name:</strong></div>
+            <div class="col-sm-8">{{user.user_name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Custom:</strong></div>
+            <div class="col-sm-8">{{user.user_custom}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Email:</strong></div>
+            <div class="col-sm-8">{{user.email}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 nowrap"><strong>Register date:</strong></div>
+            <div class="col-sm-8">{{user.register_date}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Balance:</strong></div>
+            <div class="col-sm-8">{{user.balance}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 nowrap"><strong>Wallet amount:</strong></div>
+            <div class="col-sm-8">{{user.wallet_amount}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 nowrap"><strong>Wallet currency:</strong></div>
+            <div class="col-sm-8">{{user.wallet_currency}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><strong>Enabled:</strong></div>
+            <div class="col-sm-8">{{user.enabled}}</div>
+        </div>
+
+
+        <div class="align-bottom">
+            <a class="btn btn-success" href="#/users/details/{{user.user_id}}">
+                Подробнее
+            </a>
+            <a class="btn btn-success" href="#/users/edit/{{user.user_id}}">
+                Изменить
+            </a>
+        </div>
+
+    </div>
+</div>
+<div style="display: none;" class="server-error" >
+{{errorMessage}}
+</div>
+
+
+<!-- pager -->
+<ul ng-if="pager.pages.length" class="pagination">
+    <li ng-class="{disabled:pager.currentPage === 1}">
+        <a ng-click="setPage(1)">&lt;&lt;</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === 1}">
+        <a ng-click="setPage(vm.pager.currentPage - 1)">&lt;</a>
+    </li>
+    <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+        <a ng-click="setPage(page)">{{page}}</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+        <a ng-click="setPage(vm.pager.currentPage + 1)">&gt;</a>
+    </li>
+    <li ng-class="{disabled:pager.currentPage === vm.pager.totalPages}">
+        <a ng-click="setPage(pager.totalPages)">&gt;&gt;</a>
+    </li>
+</ul>
+

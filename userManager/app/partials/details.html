@@ -1,0 +1,96 @@
+﻿<h2>Детальная информация по пользователю</h2>
+<div style="display: none;" class="server-error">
+    {{errorMessage}}
+</div>
+<div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Id:</strong></div>
+        <div class="col-sm-10">{{user.user_id}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Name:</strong></div>
+        <div class="col-sm-10">{{user.user_name}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Custom:</strong></div>
+        <div class="col-sm-10">{{user.user_custom}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Email:</strong></div>
+        <div class="col-sm-10">{{user.email}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 nowrap"><strong>Register date:</strong></div>
+        <div class="col-sm-10">{{user.register_date}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Balance:</strong></div>
+        <div class="col-sm-2"><input class="form-control date-control" type="text" ng-model="user.balance" /></div>
+        <div class="col-sm-8"><a class="btn btn-primary" ng-click="changeBalance()">Изменить баланс</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 nowrap"><strong>Wallet amount:</strong></div>
+        <div class="col-sm-10">{{user.wallet_amount}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 nowrap"><strong>Wallet currency:</strong></div>
+        <div class="col-sm-10">{{user.wallet_currency}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2"><strong>Enabled:</strong></div>
+        <div class="col-sm-10">{{user.enabled}}</div>
+    </div>
+</div>
+
+<h3>Список операций</h3>
+<div class="row">
+    <span>
+        <input calendar class="input-control" ng-model="start"/>
+    </span>
+    <span>
+        <input calendar class="input-control" ng-model="end" />
+    </span>
+    <span>
+        <a class="btn btn-primary" ng-click="refreshOperations()">Обновить</a>
+    </span>
+</div>
+<table id="operationTable" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Transaction Id</th>
+            <th>Coupon Id</th>
+            <th>Coupon Code</th>
+            <th>Transaction Type</th>
+            <th>Comment</th>
+            <th>Date</th>           
+            <th class="text-right">Amount</th>
+            <th class="text-right">User Balance</th>
+            <th class="text-right">Sum</th>
+            <th>Currency</th>
+            <th>Status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr ng-repeat="operation in operations">
+            <td class="text-center">{{operation.operation_id}}</td>
+            <td class="text-left">{{operation.transaction_id}}</td>
+            <td class="text-left">{{operation.coupon_id}}</td>
+            <td class="text-left">{{operation.coupon_code}}</td>
+            <td class="text-left">{{operation.transaction_type}}</td>
+            <td class="text-left">{{operation.comment}}</td>
+            <td class="text-left">{{operation.date}}</td>
+            <td class="text-right">{{operation.amount}}</td>
+            <td class="text-right">{{operation.user_balance}}</td>
+            <td class="text-right">{{operation.sum}}</td>
+            <td class="text-left">{{operation.currency}}</td>
+            <td class="text-left">{{operation.status}}</td>
+          
+        </tr>
+        
+    </tbody>
+  
+</table>

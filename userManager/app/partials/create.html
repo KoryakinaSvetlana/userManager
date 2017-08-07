@@ -1,0 +1,26 @@
+﻿<h3>Создание пользователя</h3>
+<div class="form-group">
+    <label>Id</label>   
+    <input class="form-control" type="text" ng-model="user.user_id" />
+</div>
+<div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" ng-model="user.user_name" />
+</div>
+<div class="form-group">
+    <label>Custom</label>
+    <input class="form-control" type="text" ng-model="user.user_custom" />
+</div>
+<div class="form-group">
+    <label>Email</label>
+    <input class="form-control" type="text" ng-model="user.email" />
+</div>
+
+<div class="align-bottom">
+    <a class="btn  btn-primary" ng-click="SaveUser()">
+        Сохранить
+    </a>
+    <a class="btn " href="#/users/list">
+        Отмена
+    </a>
+</div>
